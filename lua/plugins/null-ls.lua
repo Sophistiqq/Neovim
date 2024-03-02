@@ -8,8 +8,6 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.completion.spell,
-        null_ls.builtins.completion.tags,
         null_ls.builtins.hover.dictionary
       },
       default_timeout = 10000,
