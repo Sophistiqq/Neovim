@@ -37,7 +37,7 @@ return {
       end
       lspconfig.emmet_language_server.setup({
         capabilities = capabilities,
-        filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "ejs" },
+        filetypes = { "html", "css", "svelte", "ejs" },
       })
       lspconfig.html.setup({
         capabilities = capabilities,
