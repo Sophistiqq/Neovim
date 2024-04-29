@@ -2,6 +2,7 @@ return {
   "nvim-lua/plenary.nvim", -- Ensure plenary.nvim is installed first
   {
     "nvimtools/none-ls.nvim",
+    lazy = true,
     config = function()
       local null_ls = require("null-ls")
 
@@ -10,7 +11,8 @@ return {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.rustfmt,
-          null_ls.builtins.hover.dictionary
+          null_ls.builtins.hover.dictionary,
+          null_ls.builtins.formatting.biome
         },
         default_timeout = 10000,
       })

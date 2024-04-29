@@ -63,3 +63,4 @@ vim.api.nvim_set_keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", {})
 
 -- Toggle command-line mode
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true, silent = true })
+

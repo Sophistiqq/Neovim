@@ -1,7 +1,7 @@
--- Dependencies (remove duplicate cmp-path)
 return {
   {
     "L3MON4D3/LuaSnip",
+    lazy = true,
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -44,10 +44,11 @@ return {
         -- Source configuration (prioritize LSP and luasnip)
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip" },
           { name = "nvim_lua" },
-          { name = "path" },   -- Lower priority for path completion
-          { name = "buffer" }, -- Even lower priority for buffer completion
+          { name = "path" },
+          { name = "buffer" },
+          -- Exclude snippets from the top sources
+          { name = "luasnip", keyword_length = 0, max_item_count = 5 },
         }),
 
         -- Filetype specific configuration (optional)
@@ -71,3 +72,5 @@ return {
     end,
   },
 }
+
+
