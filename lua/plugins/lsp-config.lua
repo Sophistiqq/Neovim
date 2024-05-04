@@ -52,12 +52,29 @@ return {
       lspconfig.biome.setup({
         capabilities = capabilities,
       })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.arduino_language_server.setup({
+        capabilities = capabilities,
+        filetypes = {
+          "arduino",
+          "ino",
+          "cpp",
+          "c",
+        }
+      })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        init_options = {
+          includePath = {
+            "/home/roi/.platformio/packages/framework-arduinoe/cores/esp32"
+          }
+        }
+      })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, {})
     end,
   },
 }
-
-
-

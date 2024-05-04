@@ -55,7 +55,7 @@ vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>Bdelete<CR>", { noremap = true, 
 
 -- Custom highlighting
 vim.cmd("hi! LineNr guifg=#8b8b8b guibg=none")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme kanagawa-wave")
 
 -- Color picker key mappings
 vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>PickColor<cr>", {})
