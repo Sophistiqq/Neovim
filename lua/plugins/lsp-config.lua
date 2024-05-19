@@ -10,12 +10,10 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "tsserver",
           "lua_ls",
           "emmet_language_server",
           "html",
           "cssls",
-          "svelte",
         },
       })
     end,
@@ -25,7 +23,7 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local lspconfig = require("lspconfig")
-      local lsps = { "html", "tsserver", "emmet_language_server", "lua_ls", "cssls", "svelte" }
+      local lsps = { "html", "emmet_language_server", "lua_ls", "cssls" }
 
       for _, lsp in ipairs(lsps) do
         lspconfig[lsp].setup({
@@ -35,42 +33,25 @@ return {
 
       lspconfig.emmet_language_server.setup({
         capabilities = capabilities,
-        filetypes = { "html", "css", "svelte", "ejs" },
+        filetypes = { "html", "css", "ejs" },
       })
 
       lspconfig.html.setup({
         capabilities = capabilities,
-        filetypes = { "html", "ejs", "svelte" },
+        filetypes = { "html", "ejs"},
         indent = {
           enable = false,
         },
       })
       lspconfig.cssls.setup({
         capabilities = capabilities,
-        filetypes = { "css", "scss", "less", "svelte" },
+        filetypes = { "css", "scss", "less" },
       })
       lspconfig.biome.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
+      lspconfig.vtsls.setup({
         capabilities = capabilities,
-      })
-      lspconfig.arduino_language_server.setup({
-        capabilities = capabilities,
-        filetypes = {
-          "arduino",
-          "ino",
-          "cpp",
-          "c",
-        }
-      })
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-        init_options = {
-          includePath = {
-            "/home/roi/.platformio/packages/framework-arduinoe/cores/esp32"
-          }
-        }
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
